@@ -1,0 +1,53 @@
+Authorities:
+  - Organization: 'BDLS'
+    Standards:
+      - Name: 'SDTMIG'
+        References:
+          - Citations:
+              - Cited Guidance: 'La version du document doit être présente dans le nom du fichier'
+                Document: ''
+                Item: ''
+                Section: ''
+            Criteria:
+              Logical Expression:
+                Condition: 'DOCDAT in DOCNAME'
+                Rule: 'La date du document doit être présente dans le nom du fichier.'
+              Plain Language Expression: 'La date doit apparaître dans le nom du fichier.'
+              Type: 'Business'
+            Origin: ''
+            Release Notes: ''
+            Rule Identifier:
+              Id: 'ETMF0009'
+              Version: '1'
+            Validator Rule Message: 'La date {DOCDAT} est pas présente dans le nom du fichier {DOCNAME}.'
+            Version: ''
+        Version: '3.4'
+Check:
+  all:
+    - name: DOCDAT
+      operator: value_in_other_column
+      comparator: DOCNAME
+      value: DOCNAME
+    
+      
+      
+Core:
+  Id: ETMF0009
+  Status: Draft
+  Version: '1'
+Description: 'La version du document doit être présente dans le nom du fichier (feuille metadata.xpt).'
+Executability: Fully Executable
+Outcome:
+  Message: 'La date {DOCDAT} est pas présente dans le nom du fichier {DOCNAME}.'
+  Output Variables:
+    - DOCDAT
+    - DOCNAME
+Rule Type: Record Data
+Scope:
+  Classes:
+    Include:
+      - ALL
+  Domains:
+    Include:
+      - ALL
+Sensitivity: Record

@@ -1,0 +1,49 @@
+Authorities:
+  - Organization: 'BDLS'
+    Standards:
+      - Name: 'SDTMIG'
+        References:
+          - Citations:
+              - Cited Guidance: 'La version du document doit être 1.0.'
+                Document: ''
+                Item: ''
+                Section: ''
+            Criteria:
+              Logical Expression:
+                Condition: 'DOCVERSN == "1.0"'
+                Rule: 'La colonne DOCVERSN doit avoir la valeur 1.0.'
+              Plain Language Expression: 'La version doit être 1.0.'
+              Type: 'Business'
+            Origin: ''
+            Release Notes: ''
+            Rule Identifier:
+              Id: 'ETMF0010'
+              Version: '1'
+            Validator Rule Message: 'La valeur {DOCVERSN} nest pas égale à "1.0".'
+            Version: ''
+        Version: '3.4'
+Check:
+  all:
+    - name: DOCVERSN
+      operator: is_in
+      comparator: DOCNAME
+      
+Core:
+  Id: ETMF0010
+  Status: Draft
+  Version: '1'
+Description: 'Vérifie que la colonne DOCVERSN est égale à "1.0" (feuille metadata.xpt).'
+Executability: Fully Executable
+Outcome:
+  Message: 'La valeur {DOCVERSN} nest pas égale à "1.0".'
+  Output Variables:
+    - DOCVERSN
+Rule Type: Record Data
+Scope:
+  Classes:
+    Include:
+      - ALL
+  Domains:
+    Include:
+      - ALL
+Sensitivity: Record

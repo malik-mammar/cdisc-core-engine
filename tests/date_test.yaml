@@ -1,0 +1,46 @@
+Authorities:
+  - Organization: 'BDLS'
+    Standards:
+      - Name: 'SDTMIG'
+        References:
+          - Citations:
+              - Cited Guidance: 'La date du document doit être antérieure ou égale à la date de fin du projet'
+                Document: ''
+                Item: ''
+                Section: ''
+            Criteria:
+              Logical Expression:
+                Condition: 'DOCDAT <= ENDPRO'
+                Rule: 'La date du document doit être antérieure ou égale à la date de fin du projet.'
+              Plain Language Expression: 'La date du document ne doit pas être postérieure à la date de fin du projet.'
+              Type: 'Business'
+            Origin: ''
+            Release Notes: ''
+            Rule Identifier:
+              Id: 'ETMF0006'
+              Version: '1'
+            Validator Rule Message: 'La date {DOCDAT} est postérieure à la date de fin du projet {ENDPRO}.'
+            Version: ''
+        Version: '3.4'
+Check:
+  all:
+    - name: DOCDAT
+      operator: compare_doc_dates_with_project_end
+      target: DOCDAT
+      comparator: ENDPRO
+      value: ENDPRO
+
+Core:
+  Id: ETMF0006
+  Version: '1'
+Outcome:
+  Message: 'La date {DOCDAT} est postérieure à la date de fin du projet {ENDPRO}.'
+  Output Variables:
+    - DOCDAT
+    - ENDPRO
+Rule Type: Record Data
+Scope:
+  Classes:
+    Include:
+      - ALL
+Sensitivity: Record

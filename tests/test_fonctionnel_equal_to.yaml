@@ -1,0 +1,51 @@
+Authorities:
+  - Organization: 'BDLS'
+    Standards:
+      - Name: 'SDTMIG'
+        References:
+          - Citations:
+              - Cited Guidance: 'La version du document doit être présente dans le nom du fichier'
+                Document: ''
+                Item: ''
+                Section: ''
+            Criteria:
+              Logical Expression:
+                Condition: 'DOCVERSN in DOCNAME'
+                Rule: 'La version du document doit être incluse dans le nom du fichier.'
+              Plain Language Expression: 'La version doit apparaître dans le nom du fichier.'
+              Type: 'Business'
+            Origin: ''
+            Release Notes: ''
+            Rule Identifier:
+              Id: 'ETMF0010'
+              Version: '1'
+            Validator Rule Message: 'La version {DOCVERSN} est égale à 1.0.'
+            Version: ''
+        Version: '3.4'
+Check:
+  all:
+    
+    - name: DOCVERSN
+      operator: equal_to
+      value: '1.0'
+Core:
+  Id: ETMF0010
+  Status: Draft
+  Version: '1'
+Description: 'La version du document doit être présente dans le nom du fichier (feuille metadata.xpt).'
+Executability: Fully Executable
+Outcome:
+  Message: 'La version {DOCVERSN} est égale à 1.0.'
+  Output Variables:
+    - DOCVERSN
+Rule Type: Record Data
+Scope:
+  Classes:
+    Include:
+      - ALL
+  Domains:
+    Include:
+      - ALL
+Sensitivity: Record
+exec_module: check_operators.dataframe_operators
+exec_function: value_in_other_column

@@ -1,0 +1,21 @@
+Authorities:
+  - Organization: 'BDLS'
+Check:
+  all:
+    - name: glob_var
+      operator: show_last_row_of_sheet
+      sheet_path: glob_var.xpt
+
+Core:
+  Id: SHOWLASTROW
+  Status: Draft
+  Version: '1'
+Description: 'Affiche la dernière ligne de la feuille glob_var.xpt'
+Outcome:
+  Message: 'Dernière ligne affichée dans les logs et la console.'
+Rule Type: Utility
+Scope:
+  Classes:
+    Include:
+      - ALL
+Sensitivity: Utility
